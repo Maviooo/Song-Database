@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{song.title}}{% endblock %}
+
+{% block body %}
+    <p>Tekst: </p>
+    <p>{{song.body|nl2br}}</p>
+    <hr>
+    <a href="/" class="btn btn-primary">Go back</a>    
+{% endblock %}

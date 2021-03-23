@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Songs Database{% endblock %}
+
+{% block body %}
+    <table id="songTable" class="table table-hover">
+        <thead>
+            <tr>
+                <th>Tytuł</th>
+                <th>Wykonawca</th>
+                <th>BPM</th>
+                <th>Akordy</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for song in songs%}
+            <tr>
+                <td>{{song.title}}</td>
+                <td>{{song.artist}}</td>
+                <td>{{song.bpm}}</td>
+                <td>{{song.chords}}</td>
+                <td>
+                    <a href="/song/{{song.id}}" class="btn btn-primary">Show</a>
+                    <a href="/song/edit/{{song.id}}" class="btn btn-success">Edit</a>
+                    <a href="#" class="btn btn-danger delete-song" data-id="{{song.id}}" >Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/main.js"></script>
+{% endblock %}
