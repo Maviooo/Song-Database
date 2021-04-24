@@ -10,16 +10,25 @@
       <li class="nav-item">
         <a href="/" class="nav-link">Home</a>
       </li>
+      {% if is_granted('ROLE_ADMIN')%}
+
       <li class="nav-item">
         <a href="/song/new" class="nav-link">New Song</a>
       </li>
+      {% endif %}
+      {% if is_granted('ROLE_ADMIN') %}
       <li class="nav-item">
+        <a href="/logout" class="nav-link">Logout</a>
+      </li>
+      {% else %}
+        <li class="nav-item">
         <a href="/login" class="nav-link">Login</a>
       </li>
+      {% endif %}
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <form class="form-inline my-2 my-lg-0 role="search" id="nav-search-bar">
       <input class="form-control " type="text" placeholder="Search">
     </form>
-  </div>
+  </div> 
 </div>
 </nav>

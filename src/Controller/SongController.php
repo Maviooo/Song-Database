@@ -28,6 +28,14 @@ class SongController extends AbstractController{
 
 
     }
+    
+    /**
+    * @Route("/admin")
+    */
+    public function admin()
+    {
+        return new Response('<html><body>Admin page!</body></html>');
+    }
 
     /**
      * @Route("/song/new", name="new_song")
